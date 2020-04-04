@@ -1,26 +1,26 @@
-// import React from 'react';
-// import { StyleSheet, Text, View, Button,TouchableOpacity } from 'react-native';
-// import styled from "styled-components"
+import React from 'react';
+import { StyleSheet, Text, View, Button,TouchableOpacity } from 'react-native';
+import styled from 'styled-components/native'
 
-// const PinkButton = styled.TouchableOpacity`
-// background-color: palevioletred;
-// border-radius: 3px;
-// border: none;
-// color: white;
-// `;
+const PinkButton = styled.TouchableOpacity`
+  background: pink;
+  border-radius: 3px;
+  border: 1px solid black;
+  color: white;
+`;
 
 
-// export default function MyButton() {
-//     return (
-//       <PinkButton>
-//         <TouchableOpacity 
-//         title="Press me"
-//         onPress={() => alert('Hi!')} 
-      
-//         >
-//           </TouchableOpacity>
-//         </PinkButton>
-//     );
-//   }
+export const MyButton = () => {
+    return (
+      <View>
+      <PinkButton
+       
+        title="Press me"
+        onPress={() => alert('Hi!')}>
+<Text>Press me</Text>
+        </PinkButton>
+        </View>
+    );
+  }
   
 
