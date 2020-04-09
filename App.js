@@ -1,21 +1,45 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import styled from "styled-components/native"
-import {MyButton} from './components/Button';
-import {Card} from './components/Card';
-import { ImageBox } from './components/ImageBox';
+import { createStackNavigator } from '@react-navigation/stack'
+import DrinkList from './components/DrinkList'
+import DrinkDetail from './components/DrinkDetail'
 
-export default function App() {
+//Fiesta (#DD4132FF) and Jester Red (#9E1030FF) Peach (#EEA47FFF)
+//(#D198C5FF) and Cream Gold (#E0C568FF)
+
+export const Container = styled.View`
+background-color: #9e1030ff;
+flex: 1;
+justify-content: center;
+align-items: center;
+
+`
+export const Paragraf = styled.Text`
+color: #e0c568ff;
+
+`
+
+const Stack = createStackNavigator();
+
+const App = () => {
+
   return (
-    <View style = {styles.container} >
-      <MyButton />
-      <Text>Open up App.js to start working on your app!</Text>
-      <ImageBox />
-      <Text>Drink app from App</Text>
-      
-    <Card />
+    <Container>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="DrinkList"
+          component={DrinkList}
+          options={{title: 'Welcome'}}
+        />
+        <Stack.Screen name='Detail' component={DrinkDetail} />
+      </Stack.Navigator>
+    </NavigationContainer>
+
+      <DrinkList />
         
-    </View>
+    </Container>
   );
 }
 
@@ -28,3 +52,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+export default App
