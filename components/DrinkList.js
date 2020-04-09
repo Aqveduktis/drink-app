@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native-gesture-handler'
+import { NavigationContainer, useNavigation } from '@react-navigation/native'
+
 import styled from "styled-components/native"
 import {Container, Paragraf} from '../App'
 import DrinkDetail from './DrinkDetail'
 
 
-const DrinkList = () => {
+const DrinkList = ({ navigation }) => {
     const drinkUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic'
 const [drinks, setDrinks] = useState([])
 
@@ -22,13 +24,15 @@ const [drinks, setDrinks] = useState([])
     return(
         <Container>
             <Paragraf>Hello world</Paragraf>
-            {drinks && drinks.map((drink, index)=>{
+            {drinks && drinks.map((drink)=>{
+                return(
                 <TouchableOpacity
                 key={drink.idDrink}
-                onPress={() => navigation.navigate('Detail', { Detail })} // navigating to details screen with the clicked house info passed along
+                onPress={() => navigation.navigate('Detail', { drink })} // navigating to details screen with the clicked house info passed along
               >
-                <Paragraf index={index}>{drink.strDrink}</Paragraf>
+                <Paragraf>{drink.strDrink}</Paragraf>
               </TouchableOpacity>
+              )
             })}
         </Container>
     )

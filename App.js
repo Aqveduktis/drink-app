@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import styled from "styled-components/native"
+import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
+import Navigation from 'react-native-navigation';
 import DrinkList from './components/DrinkList'
 import DrinkDetail from './components/DrinkDetail'
 
@@ -28,10 +30,7 @@ const App = () => {
     <Container>
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
-          name="DrinkList"
-          component={DrinkList}
-          options={{title: 'Welcome'}}
+        <Stack.Screen name="DrinkList" component={DrinkList}
         />
         <Stack.Screen name='Detail' component={DrinkDetail} />
       </Stack.Navigator>
