@@ -18,7 +18,8 @@ align-items: center;
 
 `
 export const Paragraf = styled.Text`
-color: #e0c568ff;
+color: #dd4132ff;
+font-size: 20px;
 
 `
 
