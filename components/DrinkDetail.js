@@ -6,15 +6,15 @@ import {Container, Paragraf} from '../App'
 
 
 const DrinkDetail = ({route}) => {
-const {drink} = route.params
+const {item} = route.params
 //const imageUrl = `https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg` 
 
     return(
         <Container>
             <Paragraf>Hello from detail</Paragraf>
-    <Paragraf>{drink.strDrink}</Paragraf>
+    <Paragraf>{item.strDrink}</Paragraf>
     <Image
-    source = {{uri:drink.strDrinkThumb}} style = {{width: 350, height: 350}}
+    source = {{uri:item.strDrinkThumb}} style = {{width: 350, height: 350}}
     />
         </Container>
     )

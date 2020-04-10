@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { TouchableOpacity, TouchableHighlight, View } from 'react-native-gesture-handler'
+import {View, FlatList} from 'react-native'
+import { TouchableOpacity, TouchableHighlight } from 'react-native-gesture-handler'
 import { NavigationContainer, useNavigation } from '@react-navigation/native'
 import Navigation from 'react-native-navigation';
 
@@ -24,16 +25,17 @@ const [drinks, setDrinks] = useState([])
     return(
         <Container>
             <Paragraf>Hello world</Paragraf>
-            {drinks && drinks.map((drink)=>{
-                return(
-                <TouchableOpacity
-                key={drink.idDrink}
-                onPress={() => navigation.navigate('Detail', { drink })} 
-              >
-                <Paragraf>{drink.strDrink}</Paragraf>
-                </TouchableOpacity>
-              )
-            })}
+            <FlatList
+          data={drinks}
+          renderItem={({item}) =>
+          <TouchableOpacity onPress={() => navigation.navigate('Detail', { item })} >
+          <Paragraf>{item.strDrink}</Paragraf>
+          </TouchableOpacity>
+
+          }
+          keyExtractor={item => item.idDrink}
+        />
+
         </Container>
     )
 }
