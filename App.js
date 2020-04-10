@@ -27,7 +27,7 @@ const Stack = createStackNavigator();
 const App = () => {
 
   return (
-    <Container>
+   
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="DrinkList" component={DrinkList}
@@ -36,9 +36,6 @@ const App = () => {
       </Stack.Navigator>
     </NavigationContainer>
 
-      <DrinkList />
-        
-    </Container>
   );
 }
 

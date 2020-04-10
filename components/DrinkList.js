@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { TouchableOpacity, View } from 'react-native-gesture-handler'
+import { TouchableOpacity, TouchableHighlight, View } from 'react-native-gesture-handler'
 import { NavigationContainer, useNavigation } from '@react-navigation/native'
+import Navigation from 'react-native-navigation';
 
 import styled from "styled-components/native"
 import {Container, Paragraf} from '../App'
@@ -18,7 +19,6 @@ const [drinks, setDrinks] = useState([])
             console.log(json)
             setDrinks(json.drinks)})
     },[])
- 
 
 
     return(
@@ -28,10 +28,10 @@ const [drinks, setDrinks] = useState([])
                 return(
                 <TouchableOpacity
                 key={drink.idDrink}
-                onPress={() => navigation.navigate('Detail', { drink })} // navigating to details screen with the clicked house info passed along
+                onPress={() => navigation.navigate('Detail', { drink })} 
               >
                 <Paragraf>{drink.strDrink}</Paragraf>
-              </TouchableOpacity>
+                </TouchableOpacity>
               )
             })}
         </Container>
