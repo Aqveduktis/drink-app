@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import styled from "styled-components/native"
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
+import { useFonts } from '@use-expo/font';
 import Navigation from 'react-native-navigation';
 import DrinkList from './components/DrinkList'
 import DrinkDetail from './components/DrinkDetail'
@@ -18,8 +19,9 @@ align-items: center;
 
 `
 export const Paragraf = styled.Text`
-color: #dd4132ff;
-font-size: 20px;
+color: #EEA47FFF;
+font-family: 'Satisfy-Regular';
+font-size: 24px;
 
 `
 
@@ -27,14 +29,19 @@ const Stack = createStackNavigator();
 
 const App = () => {
 
+  let [fontsLoaded] = useFonts({
+    'Satisfy-Regular': require('./assets/fonts/Satisfy-Regular.ttf'),
+  });
+
   return (
    
     <NavigationContainer>
+      {fontsLoaded && 
       <Stack.Navigator>
         <Stack.Screen name="DrinkList" component={DrinkList}
         />
         <Stack.Screen name='Detail' component={DrinkDetail} />
-      </Stack.Navigator>
+      </Stack.Navigator>}
     </NavigationContainer>
 
   );
